@@ -1,4 +1,4 @@
-package io.cucumber.examples.calculator;
+package io.cucumber.examples.calculator.steps;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.cucumber.java.DefaultDataTableCellTransformer;

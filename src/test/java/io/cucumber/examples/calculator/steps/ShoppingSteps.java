@@ -1,5 +1,6 @@
-package io.cucumber.examples.calculator;
+package io.cucumber.examples.calculator.steps;
 
+import io.cucumber.examples.calculator.RpnCalculator;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
