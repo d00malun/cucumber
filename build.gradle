@@ -10,27 +10,41 @@ repositories {
 }
 
 dependencies {
-//    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-//    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
 
-    // import a BOM
+    // import BOMs
     implementation platform('io.cucumber:cucumber-bom:7.2.3')
     implementation platform('org.junit:junit-bom:5.8.2')
 
+    // Cucumber
     testImplementation 'io.cucumber:cucumber-java'
     testImplementation 'io.cucumber:cucumber-picocontainer'
     testImplementation 'io.cucumber:cucumber-junit-platform-engine'
 
+    // JUnit
     testImplementation 'org.junit.platform:junit-platform-suite'
     testImplementation 'org.junit.platform:junit-platform-console'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
 
-
+    // Jackson
     implementation 'com.fasterxml.jackson.core:jackson-core:2.13.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.2'
+
+    // Logging
+    implementation 'org.apache.logging.log4j:log4j-api:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-core:2.17.2'
+    implementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'
+
+    implementation 'org.slf4j:slf4j-api:1.7.36'
 
 }
 
 test {
     useJUnitPlatform()
+    testLogging {
+        events = ["passed", "failed", "skipped"]
+        showStandardStreams = true
+        showStackTraces = true
+        exceptionFormat = "short"
+    }
 }

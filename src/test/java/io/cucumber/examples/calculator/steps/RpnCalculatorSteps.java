@@ -1,27 +1,34 @@
 package io.cucumber.examples.calculator.steps;
 
+import io.cucumber.examples.calculator.BaseTest;
 import io.cucumber.examples.calculator.RpnCalculator;
 import io.cucumber.java.*;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class RpnCalculatorSteps {
+public class RpnCalculatorSteps extends BaseTest {
+
+    private static final Logger log = LoggerFactory.getLogger(RpnCalculatorSteps.class);
 
     private RpnCalculator calc;
 
     @BeforeAll
     public static void beforeAll() {
         // Runs before all scenarios
+        log.warn("BEFORE ALL");
     }
 
     @AfterAll
     public static void afterAll() {
         // Runs after all scenarios
+        log.warn("AFTER ALL");
     }
 
     @AfterAll
@@ -37,6 +44,7 @@ public class RpnCalculatorSteps {
     @After
     public void after(Scenario scenario) {
         scenario.log("Runs after each scenarios");
+        log.info("This is log test in AFTER on level INFO.");
     }
 
     @After
